@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Night Light</string>
+    <string name="app_id">ca-app-pub-9389012961312267~1302267099</string> <!-- ca-app-pub-3940256099942544~3347511713 - test-->
+    <string name="banner_id">ca-app-pub-9389012961312267/6901529392</string> <!-- ca-app-pub-3940256099942544/6300978111 - test banner-->
+    <string name="inter_id">ca-app-pub-9389012961312267/6702767580</string><!-- ca-app-pub-3940256099942544/1033173712 - test interstitial-->
+    <string name="shrt_short">Night Light</string>
+    <string name="shrt_desc">Toggle Night Light On</string>
+</resources>

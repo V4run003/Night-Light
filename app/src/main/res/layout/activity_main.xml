@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#0C0C0C"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/seek_bg"
+        android:foreground="@drawable/ic_share_black_24dp"
+        android:id="@+id/share"
+        android:layout_margin="23dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lay1"
+        android:orientation="vertical"
+        android:background="@drawable/seek_bg"
+        android:layout_margin="15dp"
+        android:layout_above="@+id/start_button"
+        android:gravity="center_horizontal"
+       android:layout_alignParentTop="true">
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logox"
+        android:layout_marginTop="10dp"
+        android:id="@+id/logo"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        />
+
+    </RelativeLayout>
+
+
+    <ToggleButton
+    android:layout_width="80dp"
+    android:layout_height="40dp"
+    android:text=""
+    android:textOn=""
+    android:textOff=""
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/tbutton"
+        android:layout_above="@+id/info"
+    android:id="@+id/start_button"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/info"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_above="@id/seeklayout">
+
+      <ImageView
+          android:layout_width="18dp"
+          android:layout_height="18dp"
+          android:layout_marginLeft="5dp"
+          android:src="@drawable/ic_info_outline_black_24dp"
+          android:layout_gravity="center"
+          />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="You can adjust the intensity and temprature below"
+            android:textColor="@android:color/secondary_text_dark"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+       android:layout_above="@+id/adView"
+        android:background="@drawable/seek_bg"
+        android:id="@+id/seeklayout"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Intensity"
+            android:textColor="@android:color/primary_text_dark" />
+
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seek_alpha"
+            android:max="200"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Red"
+            android:textColor="@android:color/primary_text_dark" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seek_red"
+            android:max="255"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Green"
+            android:textColor="@android:color/primary_text_dark" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seek_green"
+            android:max="255"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Blue"
+            android:textColor="@android:color/primary_text_dark" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seek_blue"
+            android:max="255"
+            android:layout_marginBottom="15dp"/>
+
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_id">
+    </com.google.android.gms.ads.AdView>
+
+
+
+</RelativeLayout>
