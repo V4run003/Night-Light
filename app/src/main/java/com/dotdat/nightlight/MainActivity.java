@@ -44,44 +44,13 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs",MODE_PRIVATE);
         boolean firstStart = prefs.getBoolean("firstStart",true);
 
-        if (firstStart) {
-            openOnBoardActivity();
-        }
-        else {
-
             interstitialAd = new InterstitialAd(this);
             interstitialAd.setAdUnitId(getResources().getString(R.string.inter_id));
             final AdRequest adRequest2 = new AdRequest.Builder().build();
-            interstitialAd.setAdListener(new AdListener(){
-                @Override
-                public void onAdLoaded() {
-                    interstitialAd.show();
-                    super.onAdLoaded();
-                }
-                @Override
-                public void onAdClosed() {
-                    super.onAdClosed();
+            interstitialAd.loadAd(adRequest2);
 
-                }
-            });
 
-            CountDownTimer timer = new CountDownTimer(2000, 20) {
 
-                @Override
-                public void onTick(long millisUntilFinished) {
-
-                }
-
-                @Override
-                public void onFinish() {
-                    try {
-                        interstitialAd.loadAd(adRequest2);
-                    } catch (Exception e) {
-                        Log.e("Error", "Error: " + e.toString());
-                    }
-                }
-            }.start();
-        }
 
         final ImageView myImageView = findViewById(R.id.logo);
         myImageView.setImageResource(R.drawable.lololo);
@@ -161,15 +130,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void openOnBoardActivity() {
-        Intent intent = new Intent(this, OnBoardActivity.class);
-        startActivity(intent);
-        SharedPreferences prefs = getSharedPreferences("prefs",MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("firstStart",false);
-        editor.apply();
-
-    }
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -207,4 +167,11 @@ public class MainActivity extends AppCompatActivity {
         mToggleButton.setChecked(ScreenFilterService.STATE == ScreenFilterService.STATE_ACTIVE);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (interstitialAd.isLoaded()){
+            interstitialAd.show();
+        }
+    }
 }
